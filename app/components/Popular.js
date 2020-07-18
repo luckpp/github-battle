@@ -1,0 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export default class Popular extends React.Component {
+  render() {
+    const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Pythpn'];
+    return (
+      <ul className='flex-center'>
+        {languages.map((language) => (
+          <li key={language}>
+            <button className='btn-clear nav-link'>
+              {language}
+            </button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
