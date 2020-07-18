@@ -3,7 +3,7 @@
 Steps for creating a React app are the following:
 - create a ES6 class that extends `React.Component`
 - use the `render()` method in order to describe the UI for the component using JSX
-  - the JSX will be converted by Bable in order to be properly interpreted by the browser (see `React.createElemet()`)
+  - JSX is always going to get compiled to `React.createElement(...)` invocations (typically) via Babel.
 - use `ReactDOM.render()` in order to specify the element that we want to render and where that element should be rendered
 - set-up **webpack** and **babel**
   - create and update the `webpack.config.js`
