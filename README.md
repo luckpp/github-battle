@@ -33,3 +33,27 @@ Steps for creating a React app are the following:
 ## Validating the Recat component properties
 
 The validation of the props passe into a component can be done using the `prop-types` package.
+
+## The component lifecycle
+
+### 1. When the component gets added to the DOM (mounting)
+- set the component initial state
+  - use the `constructor()`
+- render a DOM node
+  - use the `render()` method
+- make an AJAX request
+  - inside the `componentDidMount()` method
+  - it is invoked only once when the component is mounted to the DOM
+- set up listeners (i.e. via Websockets or Firebase)
+
+### 2. When the component updates its state or receives new data via props (updating)
+- re-render the UI with the updated state and props
+  - occurs in `render()` and `setState()`
+- re-fetching data
+  - can occur in `componentDidUpdate()`
+- re-setting a listener
+  - can occur in `componentDidUpdate()`
+
+### 3. When the component gets removed from the DOM (unmounting)
+
+- set up a listener in `componentDidMount()` in order cleanup, remove listeners, ...
