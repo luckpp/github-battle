@@ -26,3 +26,10 @@ Steps for creating a React app are the following:
   "start": "webpack-dev-server"
 }
 ```
+
+
+# Notes
+
+## Validating the Recat component properties
+
+The validation of the props passe into a component can be done using the `prop-types` package.
