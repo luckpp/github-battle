@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUserFriends, FaFighterJet, FaTrophy, FaTimesCircle } from 'react-icons/fa'
 import PropTypes from 'prop-types'
-import Results from './Resuts'
+import Results from './Results'
 
 function Instructions() {
   return (
