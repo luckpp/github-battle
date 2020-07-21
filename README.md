@@ -57,3 +57,11 @@ The validation of the props passe into a component can be done using the `prop-t
 ### 3. When the component gets removed from the DOM (unmounting)
 
 - set up a listener in `componentDidMount()` in order cleanup, remove listeners, ...
+
+## Controlled vs Uncontrolled Components
+
+- in controlled components the React components are in charge of the state (prefere this approach)
+- in uncntrolled components the state is stored and handled by the DOM and is grabed whenever is needed, for exaple when pressing the **submit** button on a form
+
+NOTE: The ideea of React is that you have a set of components that each manage their own state.
+
