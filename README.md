@@ -65,3 +65,36 @@ The validation of the props passe into a component can be done using the `prop-t
 
 NOTE: The ideea of React is that you have a set of components that each manage their own state.
 
+## Children in React
+
+Instead of passing data into components using attributes you can pass data using opening and closing tags:
+
+```html
+<Header>You can have text between tags.</Header>
+
+<Container>
+  <h1>You can also have</h1>
+  <p>elements between tags</p>
+</Container>
+```
+
+```jsx
+function Header ({ children }) {
+  return (
+    <h1 className='header'>
+      {children}
+    </h1>
+  )
+}
+
+function Container ({ children }) {
+  return (
+    <div>
+      <Logo />
+      {children}
+    </div>
+  )
+}
+```
+
+NOTE: **Whatever is between the opening and closing tag of an element, children will be accessible inside of the component via `props.children`.**
