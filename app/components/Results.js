@@ -84,26 +84,40 @@ export default class Results extends React.Component {
       )
     }
     return (
-      <div className='grid space-around container-sm'>
-        <Card
-          header={winner.score === looser.score ? 'Tie' : 'Winner'}
-          subheader={`Score: ${winner.score.toLocaleString()}`}
-          avatar={winner.profile.avatar_url}
-          href={winner.profile.html_url}
-          name={winner.profile.login}
+      <React.Fragment>
+        <div className='grid space-around container-sm'>
+          <Card
+            header={winner.score === looser.score ? 'Tie' : 'Winner'}
+            subheader={`Score: ${winner.score.toLocaleString()}`}
+            avatar={winner.profile.avatar_url}
+            href={winner.profile.html_url}
+            name={winner.profile.login}
+          >
+            <ProfileList profile={winner.profile} />
+          </Card>
+          <Card
+            header={winner.score === looser.score ? 'Tie' : 'Looser'}
+            subheader={`Score: ${looser.score.toLocaleString()}`}
+            avatar={looser.profile.avatar_url}
+            name={looser.profile.login}
+            href={looser.profile.html_url}
+          >
+            <ProfileList profile={looser.profile} />
+          </Card>
+        </div>
+        <button
+          onClick={this.props.onReset}
+          className='btn dark-btn btn-space'
         >
-          <ProfileList profile={winner.profile} />
-        </Card>
-        <Card
-          header={winner.score === looser.score ? 'Tie' : 'Looser'}
-          subheader={`Score: ${looser.score.toLocaleString()}`}
-          avatar={looser.profile.avatar_url}
-          name={looser.profile.login}
-          href={looser.profile.html_url}
-        >
-          <ProfileList profile={looser.profile} />
-        </Card>
-      </div>
+          Reset
+        </button>
+      </React.Fragment>
     )
   }
+}
+
+Results.propTypes = {
+  playerOne: PropTypes.string.isRequired,
+  playerTwo: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired
 }
