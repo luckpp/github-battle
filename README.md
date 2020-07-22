@@ -98,3 +98,25 @@ function Container ({ children }) {
 ```
 
 NOTE: **Whatever is between the opening and closing tag of an element, children will be accessible inside of the component via `props.children`.**
+
+## Default parameters
+
+### Class components
+
+```jsx
+class StarRating extends React.Component {
+  ...
+}
+
+StarRating.defaultProps = {
+  color: '#ECB244'
+}
+```
+
+### Function components
+
+```jsx
+function StarRating ({ color = '#ECB244' }) {
+  ...
+}
+```
