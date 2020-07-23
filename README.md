@@ -120,3 +120,43 @@ function StarRating ({ color = '#ECB244' }) {
   ...
 }
 ```
+
+## Higher-Order Component
+
+- is a component
+- takes in a component as an argument
+- returns a new component
+- the component it returns can render the original component that was passed in
+
+```jsx
+function higherOrderComponent (Component) {
+  return class extends React.Component {
+    render() {
+      return <Component />
+    }
+  }
+}
+```
+
+The example below is for a HOC that adds hoover capability to a component:
+
+```jsx
+function withHover(Component, propName = 'hovering') {
+  return class WithHover extends React.Component {
+    state = { hovering: false }
+    mouseOver = () => this.setState({ hovering: true })
+    mouseOut = () => this.setState({ hovering: false })
+    render() {
+      const props = {
+        [propName]: this.state.hovering,
+        ...this.props,
+      }
+      return (
+        <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+          <Component {...props} />
+        </div>
+      );
+    }
+  }
+}
+```
